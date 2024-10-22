@@ -2,4 +2,9 @@
     <button mat-button (click)="navigateTo('/')">App</button>
     <button mat-button (click)="navigateTo('/entries')">Entries</button>
     <button mat-button (click)="navigateTo('/new-entry')">Create entry</button>
+    <span style="flex: 1 1 auto"></span>
+    <button mat-button *ngIf="auth.isAuthenticated">Welcome {{auth.userName}}</button>
+    <button mat-button *ngIf="auth.isAuthenticated" (click)="auth.logout()">Logout</button>
+    <button mat-button *ngIf="!auth.isAuthenticated" (click)="navigateTo('/login')">Login</button>
+    <button mat-button *ngIf="!auth.isAuthenticated" (click)="navigateTo('/register')">Register</button>
 </mat-toolbar>
